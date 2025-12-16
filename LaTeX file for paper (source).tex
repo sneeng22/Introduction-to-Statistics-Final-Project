@@ -74,7 +74,7 @@ Above a histogram has been provided to understand the Frequency of the test shot
 Between the heaviest and lightest grain-weight cartridges, the 340 Weatherby Magnum had a 683 J difference on average between the heavier 375 H\&H Magnum.
 
 \section{About Short-Range Measurements}
-At the crosshair zeroing distance of 300 yards, conditions such as the Coriolis effect, Vertical Deflection amount, and wind-speed didn't effect the cartridges significantly enough for extra measurements or considerations. Though, the horizontal displacements, the displacement value's mean, and approximate standard deviation can be measured still. We can also find MOA (Minute of Angle (very small, $\frac{1}{60}$th of a \textdegree)). MOA's spread out over an inch (1.047") every 100 yards (Obtained from the NSSF). 
+At the crosshair zeroing distance of 300 yards, conditions such as the Coriolis effect, Vertical Deflection amount, and wind-speed didn't effect the cartridges significantly enough for extra measurements or considerations. Though, the horizontal displacements, the displacement value's mean, and approximate standard deviation can be measured still. We can also find MOA (Minute of Angle (very small, $\frac{1}{60}$th of a \textdegree)). MOA's spread out over an inch (1.047") every 100 yards (Obtained from the NSSF). 1 inch is 25.4mm, so any calculation that needs to be done to calculate MOA, must be divisible by 25.4mm (both for MOA SD and MOA Mean).
 
 During the live-fire testing, I measured each gap between my shots placed on the 300 yard target. My pattern (the placement of each shot on a target), was very tight (in the millimeters), I found the means of the three-shot patterns beyond that. The findings below present that data. Approximations for each group follow:
 
@@ -98,9 +98,25 @@ During the live-fire testing, I measured each gap between my shots placed on the
 \[
 s = \sqrt{0.02335}\approx 0.153 \approx 0.15mm 
 \]
-
-
-
+\textbf{MOA:}
+\[
+\bar{x}=2.1667mm
+\]
+\[
+2.1667 \div 25.4 = 0.0853in
+\]
+\[
+MOA=\frac{0.0853}{25.4}=0.0284MOA
+\]
+\[
+s=0.153
+\]
+\[
+0.153 \div 25.4=0.00602
+\]
+\[
+MOA_{SD}=\frac{0.00602}{3}=0.0020MOA
+\]
 \textbf{338 Lapua Magnum:}
 
 \[
@@ -126,7 +142,7 @@ s = \sqrt{0.0235} \approx 0.153 \approx 0.15mm
 \bar{x}=2.6333mm 
 \]
 \[
-2.6333÷25.4 = 0.1037in 
+2.6333 \div 25.4 = 0.1037in 
 \]
 \[ 
 \frac{0.1037}{3}=0.0346MOA
@@ -135,7 +151,7 @@ s = \sqrt{0.0235} \approx 0.153 \approx 0.15mm
 s = 0.153mm 
 \]
 \[
-0.153÷25.4 = 0.00602in
+0.153 \div 25.4 = 0.00602in
 \]
 \[
 SD_{MOA}= \frac{0.00602}{3}=0.0020MOA
@@ -160,17 +176,23 @@ s = \sqrt{0.02335} \approx 0.153 \approx 0.15mm
 \]
 \textbf{MOA:}
 \[
-
+\bar{x}= 3.43333mm
 \]
 \[
-
+3.4333 \div 25.4=0.1352in
 \]
 \[
-
+MOA= \frac{0.1352}{3}=
+\]
+\[
+0.153\div25.4=0.00602
+\]
+\[
+SD_{MOA}=\frac{0.00602}{3}=0.0020MOA
 \]
 With such a minor horizontal deflection and MOA's, it is very difficult to find variation between data for each cartridge. This is why there is no significant results until the actual range (yards) is increased (see chart in next section). 
 
-For reference to the histogram, and for further measurement, below are the formulas for the Coriolis Effect and Vertical Deflection Distance. These can be tested, and very much used later.
+For reference to the histogram, and for further measurement, below are the formulas for the Coriolis Effect and Vertical Deflection Distance. These can be tested, and very much used later (they will have to be ajusted for bullet travel latitude).
 
 \textbf{Coriolis Effect:} 
 \[
@@ -203,15 +225,106 @@ The D.O.P.E. Sheet used has been recreated in the R programming language. This i
     \label{fig:placeholder}
 \end{figure}
 
+Below each calculation of the shot pattern (each caliber at 1000 yards) is presented, along with MOA ($\bar{x}$, s, MOA Mean, and MOA SD). The Coriolis effect, and Vertical Deflection need to be considered at this range (and measured). With bullet travel due North, we will have to calculate for horizontal displacement.
+
+\textbf{Horizontal Displacement with Coriolis over time:}
+\[
+x_{c}=\Omega v\,sin(\Phi)t^2
+\]
+\[
+\Phi = 40^\circ \rightarrow sin(\Phi) = 0.643
+\]
+\[
+\Omega = 7.292 \cdot 10^-5\: rads/s
+\]
+\[
+D = 1000 yd, 914.4 m
+\]
+\[
+\Omega sin(\Phi)D=(7.292 \cdot 10^-5)(0.643)(914.4) \approx 0.0429
+\]
+\[
+x_{c}=0.429t(m)
+\]
+
+\textbf{TOF (Time of Flight) and Coriolis Displacement (and Coriolis Drop):}
+
+The TOF was measured using a chronograph, and goes as follows for the three cartridges (again at 1000 yards distance):
+
+\begin{itemize}
+  \item 340 Weatherby Magnum: 1.17 Seconds 
+  \item 338 Lapua Magnum: 1.27 seconds 
+  \item 375 H\&H Magnum: 1.40 seconds
+\end{itemize}
+\textbf{340 Weatherby Magnum:}
+\[
+x_{c}=0.049\cdot1.18=0.0506m
+\]
+\[
+0.0506m=1.99in\] 
+Coriolis Drop $\approx$ \textbf{5.0in}
+
+\textbf{338 Lapua Magnum:}
+\[
+x_{c}=0.0429\cdot1.27=0.0545m
+\]
+\[
+0.545m=2.15in\]
+Coriolis Drop $\approx$ \textbf{5.4in}
+
+\textbf{375 H\&H Magnum:}
+
+\[
+x_{c}=0.0429\cdot1.40=0.0601m
+\]
+\[
+0.0601m=2.37in\]
+Coriolis Drop $\approx$ \textbf{6.0in}
+
+\textbf{Mean, Sample Standard Deviation, and MOA at 1000 yards:}
+
+\textbf{340 Weatherby Magnum:}
+\[
+\bar{x}=\frac{4.9+5.1+5.0}{3}=5.0
+\]
+\[
+s=\sqrt{\frac{0.02}{2}} = 0.10
+\]
+\textbf{338 Lapua Magnum:}
+\[
+\bar{x}= \frac{5.3+5.6+5.4}{3}=5.43
+\]
+\[
+s=\sqrt{\frac{0.048}{2}}=0.15
+\]
+\textbf{375 H\&H Magnum:}
+\[
+\bar{x}=\frac{5.8+6.0+6.2}{3}=6.0
+\]
+\[
+s=\sqrt{\frac{0.08}{2}}=0.20
+\]
+
+\textbf{MOA:}
+
+\[
+
+\]
 \section{Cost}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Rplot01pricecomparison.png}
+    \caption{Price Comparison of Similar, and Competing Cartridges}
+    \label{fig:placeholder}
+\end{figure}
+Above I have a bar chart of the cartridges and some similar competitors, and their price points. This realm of obscure magnum cartridges are already very expensive (pre-loaded, as many reload their own yo try and save money). Retail MSRP's were found in-person at Cabela's within their firearm department. As they sell both pre-loaded cartridges, but also blank casings for reloading hobbyists, and professionals. 
 
-
-
-
-
+As seen in the data, the 338-378 Weatherby Magnum (a competitor within this family of cartridges) is the most expensive, and it is also not as popular, making the use very niche. The cheapest observed (within this same family of cartridges) is the 300 PRC (Precesion Rifle Cartridge), which is also the least powerful of the observed cartridges. In terms of what was available in reloading, and pre-loaded cartridges for the power (grain-weight and velocity in mind), and the smaller popularity (larger stock on average at least at Cabela's locations), the 340 Weatherby Magnum is a highly appealing choice. The only major drawback is the availability of the rifles that fire the cartridge itself. Though, each cartridge studied within this cost analysis struggles from the same issue). Cabela's only carried stock reguarly of 300 PRC, and 338 Winchester (butlow stock at that). 
 \section{Conclusion: What is Truly the Most Efficient?}
 
 \section{Sources Cited}
 
 \end{document}
+
+
 
