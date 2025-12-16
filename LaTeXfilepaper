@@ -1,8 +1,9 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-
+\usepackage{graphicx} % Image Generation
+\usepackage{float}
+\usepackage{parskip}
 \title{Efficiency of High Power Magnum Rifle Cartridges: An Analysis}
-\author{Sam Engelbert}
+\author{Sam Engelbert \\ Professor J. Burke \\ MTH 1210}
 \date{December 14, 2025}
 
 \begin{document}
@@ -11,16 +12,67 @@
 
 \section{Introduction}
 Since 1912, Ballistic Development has surged in technological innovation, mass production, higher availability, more accurate ballistic measurement equipment, more consistent reloading techniques, better marksmanship, and many other various factors (growing more over time). The Magnum cartridge families which especially exploded in the post-war world were, and still today are a representation of each factor (and the development of so). 
+
 We look to analyze the higher, and more obscure end of the Magnum cartridge families, particularly in the 338 Winchester Magnum variants and onward. This level of cartridge is considered the beginning of “dangerous game” weaponry, but are highly valuable assets for the sporting marksman, looking to improve long-distance rifle proficiency. In this analysis, we will determine which cartridge of three makes is the most efficient for general use. Each chart, graph, or table (pool of results) will be sourced in the R Programming Language. 
 \section{Muzzle Velocity, and Grain Weight}
-Provided in this analysis is accurate, field-tested, and varying data. Each cartridge fired was a reloaded cartridge (recycled cartridge casings), and was hand-reloaded directly from Hornady reloading data sheets (see below). The analysis will cover three main high-power Magnum cartridges. The 340 Weatherby Magnum (lowest grain, highest velocity), the 338 Laupa (halfway in grain, and velocity), and finally the 375 H&H Magnum (highest grain, lowest velocity). First, we will compare bullet mass, grain, and average velocity. From analyzing each data set, we will find which cartridge is the most efficient for general use.  Each cartridge on the chart will be formatted: lowest grain-highest grain. 
+Provided in this analysis is accurate, field-tested, and varying data. Each cartridge fired was a reloaded cartridge (recycled cartridge casings), and was hand-reloaded directly from Hornady reloading data sheets (see below). The analysis will cover three main high-power Magnum cartridges. The 340 Weatherby Magnum (lowest grain, highest velocity), the 338 Laupa (halfway in grain, and velocity), and finally the 375 H\&H Magnum (highest grain, lowest velocity). 
 
+First, we will compare bullet mass, grain, and average velocity. From analyzing each data set, we will find which cartridge is the most efficient for general use.  Each cartridge on the chart will be formatted: lowest grain-highest grain. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Rplotbarchart2.png}
+    \caption{Muzzle Velocity Bar Chart}
+    \label{fig:placeholder}
+\end{figure}
+\section{Histogram for Impact Energy and Frequency}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Rplotimpactenergyhisto.png}
+    \caption{Impact Energy Histogram}
+    \label{fig:placeholder}
+\end{figure}
 
+340 Weatherby Magnum: 
+Shot 1: 6,548 J, Shot 2: 6,621 J, Shot 3: 6,672 J 
+\[
+\frac{(6,548+6,621+6,672)}3 \approx ~ 6,614 J = \mu
+\]
+338 Lupua Magnum: 
+Shot 1: 6,815, Shot 2: 6,892, Shot 3: 6,941  
+\[
+\frac{(6,815+6,892+6,941)}3 \approx 6,883 J = \mu
+\]
 
+375 H\&H Magnum: 
+Shot 1: 5,874, Shot 2: 5,938, Shot 3: 5,981 
+\[
+\frac{(5,874+5,938+5,981)}3 \approx 5,931 J = \mu
+\]
 
+\[
+\mu340 = 6,614 J
+\]
 
+\[
+\mu338 = 6,883 J
+\]
 
+\[
+\mu375 = 5,931 J
+\]
+Above a histogram has been provided to understand the Frequency of the test shots, as well as the Impact Energy of each shot. This way we can properly come to a conclusion of the population mean (for each cartridge). As shown, the 338 Lupua is the strongest round (at 6,883 J of energy). Each test shot was taken at each rifle’s “sight-in” range, which was 300 yards for each rifle’s optic (for crosshair zeroing, or dead center of the crosshair). 
 
+In each shot a 1-1.5\% difference was considered. This was due to measurements given by a anemometer (a wind-speed measurement device), and being at a known distance of 300 yards (again the distance of crosshair zero). Since the distance was at the crosshair zeroing distance, conditions such as the Coriolis effect, and wind-speed didn't effect the cartridges significantly enough for extra measurements or considerations. 
 
+\section{Long Range Efficiency}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Rplotlongdistancechart2.png}
+    \caption{Coriolis Effect Measurement Bar Chart}
+    \label{fig:placeholder}
+\end{figure}
+\section{Cost}
+
+\section{Conclusion: What is Truly the Most Efficient?}
 
 \end{document}
