@@ -1,0 +1,22 @@
+# Load ggplot2
+> library(ggplot2)
+> 
+> # Create the data frame
+> energy_data <- data.frame(
++     Cartridge = c("340 Weatherby Magnum",
++                   "338 Lapua Magnum",
++                   "375 H&H Magnum"),
++     Energy_J = c(6607, 6878, 5915)
++ )
+> 
+> # Create histogram
+> ggplot(energy_data, aes(x = Energy_J)) +
++     geom_histogram(binwidth = 200, boundary = 0, closed = "left") +
++     labs(
++         title = "Histogram of Rifle Bullet Impact Energy",
++         x = "Impact Energy (Joules)",
++         y = "Frequency"
++     ) +
++     theme_minimal()
+> 
+> 
