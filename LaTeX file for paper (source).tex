@@ -18,7 +18,7 @@ We look to analyze the higher, and more obscure end of the Magnum cartridge fami
 
 In the live fire tests, tools such as a chronograph (to measure bullet fps (feet per second), an anemometer/ballistic calculator (combination of both tools (will be used to calculate wind-speed)), and a rangefinder (to ensure accurate range at targets).
 \section{Muzzle Velocity, and Grain-Weight}.
-Provided in this analysis is accurate, field-tested, and varying data. Each cartridge fired was a reloaded cartridge (recycled cartridge casings), and was hand-reloaded directly from Hornady reloading data sheets (see below). The analysis will cover three main high-power Magnum cartridges. The 340 Weatherby Magnum (lowest grain, highest velocity), the 338 Lapua (halfway in grain, and velocity), and finally the 375 H\&H Magnum (highest grain, lowest velocity). 
+Provided in this analysis is accurate, field-tested, and varying data. Each cartridge fired was a reloaded cartridge (recycled cartridge casings), and was hand-reloaded directly from Barnes reloading data sheets (see in Sources Cited). The analysis will cover three main high-power Magnum cartridges. The 340 Weatherby Magnum (lowest grain, highest velocity), the 338 Lapua (halfway in grain, and velocity), and finally the 375 H\&H Magnum (highest grain, lowest velocity). 
 
 First, we will compare bullet mass, grain, and average velocity. From analyzing each data set, we will find which cartridge is the most efficient for general use.  Each cartridge on the chart will be formatted: lowest grain-highest grain. 
 \begin{figure}[H]
@@ -84,10 +84,10 @@ During the live-fire testing, I measured each gap between my shots placed on the
 \bar{x} = \frac{2.1+2.3+2.2}{3} \approx 2.1667 mm
 \]
 \[
-2.0−2.1667=−0.1667,2.3−2.1667=0.1333,2.2−2.1667=0.0333
+2.0-2.1667=-0.1667,2.3-2.1667=0.1333,2.2-2.1667=0.0333
 \]
 \[
-(−0.1667)^2=0.0278,\,(0.1333)^2=0.0178,\,(0.0333)^2=0.0011
+(-0.1667)^2=0.0278,\,(0.1333)^2=0.0178,\,(0.0333)^2=0.0011
 \]
 \[
 0.0278+0.0178+0.0011=0.0467
@@ -123,10 +123,10 @@ MOA_{SD}=\frac{0.00602}{3}=0.0020MOA
 \bar{x} = \frac{2.5+2.8+2.6}{3} \approx 2.6333mm
 \]
 \[
-2.5−2.6333=−0.1333,\,2.8−2.6333=0.1667,\,2.6−2.6333=−0.0333
+2.5 - 2.6333=-0.1333,\,2.8 - 2.6333=0.1667,\,2.6 - 2.6333=-0.0333
 \]
 \[
-(−0.1333)^2=0.0178,\,(0.1667)^2=0.0278,\,(−0.0333)2=0.0011
+(-0.1333)^2=0.0178,\,(0.1667)^2=0.0278,\,(-0.0333)2=0.0011
 \]
 \[
 0.0178+0.0278+0.0011=0.0467
@@ -163,10 +163,10 @@ SD_{MOA}= \frac{0.00602}{3}=0.0020MOA
 \bar{x} = \frac{3.3+3.6+3.4}{3} \approx 3.4333mm
 \]
 \[
-3.3−3.4333=−0.1333,3.6−3.4333=0.1667,3.4−3.4333=−0.0333
+3.3 - 3.4333=-0.1333,3.6-3.4333=0.1667,3.4-3.4333=-0.0333
 \]
 \[ 
-(−0.1333)^2=0.0178,\,(0.1667)^2=0.0278,\,(−0.0333)^2=0.0011
+(-0.1333)^2=0.0178,\,(0.1667)^2=0.0278,\,(-0.0333)^2=0.0011
 \]
 \[
 \frac{0.0467}{2} = 0.02335 
@@ -225,7 +225,7 @@ The D.O.P.E. Sheet used has been recreated in the R programming language. This i
     \label{fig:placeholder}
 \end{figure}
 
-Below each calculation of the shot pattern (each caliber at 1000 yards) is presented, along with MOA ($\bar{x}$, s, MOA Mean, and MOA SD). The Coriolis effect, and Vertical Deflection need to be considered at this range (and measured). With bullet travel due North, we will have to calculate for horizontal displacement.
+Below each calculation of the shot pattern (each caliber at 1000 yards) is presented, along with MOA ($\bar{x}$, s, MOA Mean, and MOA SD). The Coriolis effect, and Vertical Deflection need to be considered at this range (and measured). With bullet travel due North, we will have to calculate for horizontal displacement. 
 
 \textbf{Horizontal Displacement with Coriolis over time:}
 \[
@@ -283,23 +283,74 @@ Coriolis Drop $\approx$ \textbf{6.0in}
 
 \textbf{Mean, Sample Standard Deviation, and MOA at 1000 yards:}
 
+Individual MOA data can be achieved due to the distance, and environmental factors of each shot.
+Below a conversion of each cartridge's data to MOA will be done by:
+\[
+MOA=\frac{inches}{10}
+\]
 \textbf{340 Weatherby Magnum:}
 \[
 \bar{x}=\frac{4.9+5.1+5.0}{3}=5.0
 \]
 \[
+4.9 - 5.0=- 0.1,\,5.1 - 5.0=+0.1
+\]
+\[
+(-0.1)^2=0.01,\,(0.1)^2=0.01,\,(0)^2=0
+\]
+\[
 s=\sqrt{\frac{0.02}{2}} = 0.10
+\]
+\textbf{MOA:}
+
+\[
+MOA=\frac{5.0}{10}=0.50MOA
+\]
+\[
+0.49 - 0.50=- 0.01,\,0.51 - 0.50=+ 0.01,\,0.50 - 0.50= 0
+\]
+\[
+(-0.01)^2=0.0001,\,(0.01)^2=0.0001,\,(0)^2=0
+\]
+\[
+MOA_{SD}= \sqrt{\frac{0.0002}{2}}= 0.01MOA
 \]
 \textbf{338 Lapua Magnum:}
 \[
 \bar{x}= \frac{5.3+5.6+5.4}{3}=5.43
 \]
 \[
+5.3 - 5.43=-0.13,\,5.6 - 5.43=+0.17,\,5.4 - 5.43=-0.03
+\]
+\[
+(-0.13)^2=0.0169,\,(0.17)^2=0.0289,\,(-0.03)^2=0.0009
+\]
+\[
 s=\sqrt{\frac{0.048}{2}}=0.15
+\]
+\textbf{MOA:}
+
+\[
+MOA=\frac{5.43}{10}=0.543MOA
+\]
+\[
+0.53 - 0.543=-0.013,\,0.56 - 0.543=+0.017,\,0.54 - 0.543=-0.003
+\]
+\[
+(-0.013)^2=0.000169,\,(+0.017)^2=0.000289,\,(-0.003)^2=0.000009
+\]
+\[
+MOA_{SD}= \sqrt{\frac{0.000467}{2}}\approx 0.015MOA
 \]
 \textbf{375 H\&H Magnum:}
 \[
 \bar{x}=\frac{5.8+6.0+6.2}{3}=6.0
+\]
+\[
+5.8 - 6.0=-0.2,\,6.2 - 6.0=+0.2,\,6.0 - 6.0=0
+\]
+\[
+(-0.2)^2=0.04,\,(0.2)^2=0.04,\,(0)^2=0
 \]
 \[
 s=\sqrt{\frac{0.08}{2}}=0.20
@@ -308,8 +359,18 @@ s=\sqrt{\frac{0.08}{2}}=0.20
 \textbf{MOA:}
 
 \[
-
+MOA= \frac{0.58+0.62+0.60}{3}=0.60MOA
 \]
+\[
+0.58 - 0.60=-0.02,\, 0.62 - 0.60=+0.02,\,0.60 - 0.60=0
+\]
+\[
+(-0.02)^2=0.0004,\,(+0.02)^2=0.0004,\,(0)^2=0
+\]
+\[
+MOA_{SD}=\sqrt{\frac{0.0008}{2}}\approx 0.02MOA
+\]
+Per the findings of the three calibers, we have a much better solution about effiency at long-distance. The 340 Weatherby Magnum (250 grain) had an average 0.01 MOA displacement, the 338 Lapua Magnum (285 grain) had a displacement of 0.54MOA, and finally the 375 H\&H Magnum (300 grain) had displacement of 0.60 MOA.
 \section{Cost}
 \begin{figure}[H]
     \centering
@@ -319,12 +380,40 @@ s=\sqrt{\frac{0.08}{2}}=0.20
 \end{figure}
 Above I have a bar chart of the cartridges and some similar competitors, and their price points. This realm of obscure magnum cartridges are already very expensive (pre-loaded, as many reload their own yo try and save money). Retail MSRP's were found in-person at Cabela's within their firearm department. As they sell both pre-loaded cartridges, but also blank casings for reloading hobbyists, and professionals. 
 
-As seen in the data, the 338-378 Weatherby Magnum (a competitor within this family of cartridges) is the most expensive, and it is also not as popular, making the use very niche. The cheapest observed (within this same family of cartridges) is the 300 PRC (Precesion Rifle Cartridge), which is also the least powerful of the observed cartridges. In terms of what was available in reloading, and pre-loaded cartridges for the power (grain-weight and velocity in mind), and the smaller popularity (larger stock on average at least at Cabela's locations), the 340 Weatherby Magnum is a highly appealing choice. The only major drawback is the availability of the rifles that fire the cartridge itself. Though, each cartridge studied within this cost analysis struggles from the same issue). Cabela's only carried stock reguarly of 300 PRC, and 338 Winchester (butlow stock at that). 
-\section{Conclusion: What is Truly the Most Efficient?}
+As seen in the data, the 338-378 Weatherby Magnum (a competitor within this family of cartridges) is the most expensive, and it is also not as popular, making the use very niche. The cheapest observed (within this same family of cartridges) is the 300 PRC (Precision Rifle Cartridge), which is also the least powerful of the observed cartridges. In terms of what was available in reloading, and pre-loaded cartridges for the power (grain-weight and velocity in mind), and the smaller popularity (larger stock on average at least at Cabela's locations), the 340 Weatherby Magnum is a highly appealing choice. The only major drawback is the availability of the rifles that fire the cartridge itself. Though, each cartridge studied within this cost analysis struggles from the same issue). Cabela's only carried stock regularly of 300 PRC, and 338 Winchester rifles (but low stock at that). 
 
+\section{Conclusion: What is Truly the Most Efficient?}
+In the three measured Magnum cartridges, the 340 Weatherby Magnum is the fastest, most accurate, and tolerable out of the group. It is had the lightest Coriolis drop, and maintained a tight and consistent pattern on the long-distance target. The 338 Lapua Magnum came out on top with only one category, which was impact energy (6,883J average). Though, the 340 Weatherby Magnum barely trailed behind consistently each shot (6,614J, and sometimes near 6,700J). With the slightly higher grain-weight, and massive cost difference of nearly 50 percent, there really isn't much justification for the 338 Lapua Magnum. The 375 H\&H Magnum is a true British original of pre-WW1 engineering. Though, even with modernization, it was most effected by Coriolis drop, and was the least accurate cartridge of the studied three. One major benefit of the 375 H\&H Magnum is its commonly found cheaper than both the 340 Weatherby Magnum, and the 338 Lapua. In this analysis, the 340 Weatherby is the most efficient high-power magnum rifle cartridge, on the grounds of ballistics, cost, and power.
 \section{Sources Cited}
 
+\begin{thebibliography}{9}
+
+\bibitem{barnes338}
+Barnes Bullets. (n.d.).
+\textit{338 Lapua Magnum load data} [PDF].
+Barnes Bullets.
+https://barnesbullets.com/content/barnes-loaddata/rifle/338/338-Lapua-Mag-New.pdf
+
+\bibitem{barnes375}
+Barnes Bullets, Inc. (n.d.).
+\textit{375 H\&H load data} [PDF].
+Barnes Bullets.
+https://barnesbullets.com/content/barnes-loaddata/rifle/375/375HH-New.pdf
+
+\bibitem{barnes340}
+Barnes Bullets, Inc. (n.d.).
+\textit{.340 Weatherby Magnum load data} [PDF].
+Barnes Bullets.
+https://barnesbullets.com/content/barnes-loaddata/rifle/338/340-WBY2.pdf
+
+\bibitem{nssf}
+National Shooting Sports Foundation. (n.d.).
+\textit{Minute of Angle (MOA)}.
+NSSF.
+https://www.nssf.org/shooting/minute-angle-moa/
+
+\end{thebibliography}
+
+
+
 \end{document}
-
-
-
